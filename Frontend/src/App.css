@@ -1,0 +1,19 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Encode Sans Expanded',
+  sans-serif;
+
+}
+
+.admin-container{
+  display: flex;
+  margin-top: 10px;
+}
+
+
+.link{
+  text-decoration: none;
+  color: inherit;
+}

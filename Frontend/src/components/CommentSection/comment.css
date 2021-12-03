@@ -1,0 +1,42 @@
+.commentcontainer{
+    margin-top: 2px;
+    margin-bottom: 1px;
+   
+    
+}
+
+.commentsbox{
+    width: calc(410px + 3vw);
+    height: 80px;
+    border-radius: 2px;
+    margin-left: 3vw;
+    background-color:rgb(240, 239, 239);
+    border-color: rgb(229, 233, 238);
+}
+
+.commentboxwrapper{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.author{
+    font-weight: 600;
+    font-size: 14px;
+    
+
+    
+}
+
+
+
+.commentbox{
+    margin-left: 20px;
+    font-size: 14px;
+   
+}
+
+.deled{
+    margin-top: -40px;
+    margin-left: 360px;
+}
