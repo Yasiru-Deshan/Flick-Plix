@@ -6,13 +6,11 @@ import Aos from 'aos';
 import "aos/dist/aos.css";
 import Comments from '../../components/CommentSection/comments';
 import ReactPlayer from 'react-player';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios'; 
-import { useParams} from "react-router";
+import { useParams } from "react-router";
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownMenu from '../../pages/favorites/dropdown';
-
-
 
 
 const Movie = () =>{
@@ -126,7 +124,7 @@ const Movie = () =>{
         })
     }
        getComments();
-    },[])
+    },[id])
 
 
     const CommentList = ()=>{
@@ -174,6 +172,7 @@ const Movie = () =>{
                img = {image}
                movieId ={id}  
                genre = {genre}
+               video={video}
                />
         )
       })

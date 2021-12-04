@@ -20,7 +20,7 @@ function Comments(props) {
            
         }
         fetchData();
-    },[])
+    },[props.id])
 
  const submitHandler  = async(e)=>{
       let update;

@@ -1,9 +1,9 @@
 import React,{ useEffect, useState} from 'react';
-import {  MDBCol } from "mdbreact";
+import {MDBCol} from 'mdbreact';
 import BrowseItem from '../../components/Browse/browse';
 import Carousel from "react-elastic-carousel";
 import './Browse.css';
-import axios from 'axios'
+import axios from 'axios';
 
 
 

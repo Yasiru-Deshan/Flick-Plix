@@ -1,5 +1,5 @@
-import React, { useState, useEffect} from 'react'
-import Video from '../../videos/video1.mp4'; 
+import React, { useState, useEffect} from 'react';
+import Background from '../../images/movie-reel-purple-background.jpg'; 
 import { HeroContainer,
          HeroBg,
          VideoBg,
@@ -29,7 +29,7 @@ const HeroSection = () => {
     return (
         <HeroContainer id='home'>
             <HeroBg>
-                <VideoBg autoPlay loop muted src={Video} type='video/mp4'/>
+                <VideoBg style={{ backgroundImage: `url(${Background})`}}/>
             </HeroBg>
             <HeroContent>
                 <HeroH1 data-aos="fade-right">Welcome to FlickPlix</HeroH1>

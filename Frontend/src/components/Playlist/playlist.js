@@ -11,13 +11,7 @@ import Modal from 'react-modal';
 import { Form } from 'react-bootstrap';
 import '../../pages/favorites/favorites.css';
 import PlayListItem from './playlistitem';
-import {jsPDF} from 'jspdf';
-//import ListIcon from '@material-ui/icons/List';
-//import MoreVertIcon from '@material-ui/icons/MoreVert';
-//import IconButton from "@material-ui/core/IconButton";
-//import MenuItem from "@material-ui/core/MenuItem";
-//import Menu from "@material-ui/core/Menu";
-
+import jsPDF from 'jspdf';
 
 
 const breakPoints = [
@@ -39,34 +33,20 @@ function Playlist(props) {
     const pid = props.id;
     const [mDal,setModal] = useState(false);
     const [tName, settName] = useState("");
-    const [pDesc, setpDesc] = useState("");
-    const [favs,setFavs]  = useState([]);
+    const [pDesc,setDescription] = useState("");
     const [pMovies,setPMovies] = useState([]);
 
-
-     useEffect(()=>{
-
-      const getFavs = () =>{
-        axios.get('http://localhost:8070/api/favorites/allfavs').then((res)=>{
-          setFavs(res.data);
-        })
-      }
-
-      getFavs();
-    },[])
-
-    
 
   useEffect (() => {
         async function fetchData(){
             const response = (await axios.get(`http://localhost:8070/api/playlists/find/${props.id}`)).data;
             settName(response.name);
-            setpDesc(response.desc);
+            setDescription(response.desc);
             setPMovies(response.movies);
            
         }
         fetchData();
-    },[])
+    },[props.id])
 
     
     const PlayListMovies = ()=>{
@@ -192,7 +172,7 @@ function Playlist(props) {
                            value={pDesc}
                           
                         
-                          onChange={(e) => {setpDesc(e.target.value);}}
+                          onChange={(e) => {setDescription(e.target.value);}}
                         
                           />
            <Button variant="primary" onClick={()=>setModal(false)}>

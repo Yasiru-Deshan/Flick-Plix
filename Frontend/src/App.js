@@ -1,15 +1,16 @@
-import './App.css'; 
+import React, { useState } from 'react'; 
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Home from './pages/home/index';
 import Movie from './pages/movie/movie';
 import Watch from './pages/movie/watch.js';
 import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
-import { useState } from 'react';
 import Footer from './components/Footer';
 import './components/Footer/FooterElements'
 import Favorites from './pages/favorites/favorites';
 import Browse from './pages/Browse/Browse';
+import './App.css'; 
+import LoginForm from './components/loginForm';
 
 
 const App = ()=> {
@@ -27,6 +28,7 @@ const App = ()=> {
         <Navbar toggle={toggle}/>    
       <Switch>
      
+        <Route path='/login' component={LoginForm}/>
         <Route path='/' component={Home} exact/>
         <Route path='/movie/:id' component={Movie} exact/>
         <Route path='/watch/:id' component={Watch} exact/>
