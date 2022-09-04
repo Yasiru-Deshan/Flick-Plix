@@ -23,37 +23,24 @@
 
  @media screen and (max-width: 768px){
     .MenuContainer{
-        height: 8000px;
+        height: 550px;
     }
 };
 
 @media screen and (max-width: 480px){
     .MenuContainer{
-        height: 8000px;
+        height: 550px;
         position: fixed;
     }
 }
 
 .mHeading{
-   font-weight: bold;
-   font-size: 30px;
-   margin-left: calc(2vw + 80px);
-   padding-top: 20px;
+   
+   font-size: 25px;
    color: white;
 }
 
-.newPlaylist{
-    margin-left: calc(72vw + 26px);
-    
-    font-size: calc(0.2vw + 12px);
-    border-radius: 4vw;
-    padding: 1.8vw;
-    color: #fff;
-    background-color: #01bf71;
-    border: none;
-    margin-bottom: 30px;
-    
-}
+
 
 .btn-modal {
     padding: 10px 20px;
@@ -116,10 +103,10 @@
 }
 
 .mimg{
-    margin-top: 20px;
-    height:360px;
-    border-radius: 10px;  
+
+    height: 300px;
     transition: all 0.2s ease-in-out;
+    border: 1px solid white;
   
 }
 

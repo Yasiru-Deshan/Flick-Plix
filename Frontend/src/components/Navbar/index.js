@@ -73,14 +73,7 @@ const Navbar = ({ toggle}) => {
                                     exact='true' 
                                     offset={-80}>Favorites</NavLinks>
                       </NavItem>
-                      <NavItem>
-                          <NavLinks to="/browsemimi"
-                                    smooth={true} 
-                                    duration={500} 
-                                    spy={true} 
-                                    exact='true' 
-                                    offset={-80}>Events</NavLinks>
-                      </NavItem>
+                     
                       <NavItem>
                           <NavLinks to="/contact"
                                     smooth={true} 
@@ -89,14 +82,7 @@ const Navbar = ({ toggle}) => {
                                     exact='true' 
                                     offset={-80}>Contact Us</NavLinks>
                       </NavItem>
-                      <NavItem>
-                          <NavLinks to="/admin"
-                                    smooth={true} 
-                                    duration={500} 
-                                    spy={true} 
-                                    exact='true' 
-                                    offset={-80}>Admin</NavLinks>
-                      </NavItem>
+                      
 
                   </NavMenu>
                   <NavBtn>

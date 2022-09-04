@@ -4,7 +4,7 @@ import Form from './common/form';
 import auth from '../components/services/authService';
 import { Redirect } from 'react-router-dom';
 import { Column1, Column2, InfoRow,Img,ImgWrap, InfoWrapper } from '../../src/components/InfoSection/InfoElements';
-import { HeroContainer,HeroBg,HeroContent,VideoBg} from './HeroSection/HeroElements';
+import { LoginContainer,HeroBg,HeroContent} from './HeroSection/HeroElements';
 
 class LoginForm extends Form {
 
@@ -43,26 +43,19 @@ class LoginForm extends Form {
 
         return (
 
-            <HeroContainer id='login'>
+            <LoginContainer>
                <HeroBg>
-                <VideoBg style={{ background: '#2C3E50',     /* fallback for old browsers */
-                                  background: '-webkit-linear-gradient(to left, #4CA1AF, #2C3E50)',  /* Chrome 10-25, Safari 5.1-6 */
-                                  background: 'linear-gradient(to left, #4CA1AF, #2C3E50)' /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
- }}/>
+                <div style={{  background: 'linear-gradient(to right, #2C5364, #203A43, #0F2027)',
+                                   width: '100%',
+                                   height: '100%',
+                                   backgroundSize: 'cover'}}/>
             </HeroBg>
            <HeroContent>
             <InfoWrapper>
               <InfoRow>
  
                <Column1>
-                  <ImgWrap>
-                       <Img src={require('../../src/images/undraw_horror_movie_3988.svg').default} />
-                </ImgWrap>
-       
-               </Column1>
-
-               <Column2>
-                    <h1>Login</h1>
+                <h1 styles={{color:'white'}}>Sign In</h1>
 
                      <form onSubmit = {this.handleSubmit}>
         
@@ -70,12 +63,20 @@ class LoginForm extends Form {
                         {this.renderInput('password', 'Password', 'password')}
                         {this.renderButton("Login")}
                      </form>
+       
+               </Column1>
+
+               <Column2>
+                  <ImgWrap>
+                       <Img src={require('../../src/images/undraw_movie_night_fldd.svg').default} />
+                </ImgWrap>
+                   
                </Column2>
      
               </InfoRow>
             </InfoWrapper>
             </HeroContent>
-           </HeroContainer>
+           </LoginContainer>
         )
     }
 }

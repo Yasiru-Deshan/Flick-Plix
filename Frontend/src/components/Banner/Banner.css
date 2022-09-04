@@ -1,0 +1,20 @@
+.BannerContainer {
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #101522;
+}
+
+@media screen and (max-width: 768px) {
+  .BannerContainer {
+    height: 600px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .BannerContainer {
+    height: 600px;
+  }
+}

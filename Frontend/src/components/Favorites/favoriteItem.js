@@ -54,37 +54,37 @@ function FavoritesItem(props){
 
 
 
-  return(
-  <div>
-    <head>
-    <link rel="stylesheet" href="./favorites.css" ></link>
-</head>
+  return (
+    <div>
+      <head>
+        <link rel="stylesheet" href="./../Playlist/playlist.css"></link>
+      </head>
 
-      
-       <div className='wrapper' data-aos="fade-up">
-        
-         
-      
-        <Link to={`/movie/${props.id}`}><img  className="mimg" src={props.img} alt=''/></Link>
-                                        <p className="movieTitle">{props.title}  - {props.year}</p>
-  
-        
-<Dropdown>
-  <Dropdown.Toggle variant="success" id="dropdown-basic">
-  Add to a PlayList
-  </Dropdown.Toggle>
-  
-  <Dropdown.Menu>
-    <PlaylistAll/>
-  </Dropdown.Menu>
-</Dropdown>
+      <div className="wrapper" data-aos="fade-up">
+        <Link to={`/movie/${props.id}`}>
+          <img className="mimg" src={props.img} alt="" />
+        </Link>
+        <p className="movieTitle">
+          {props.title} - {props.year}
+        </p>
 
-           
-           </div>
-           
-
-        </div>
-        
+        <Dropdown>
+          <Dropdown.Toggle
+            variant="success"
+            id="dropdown-basic"
+            style={{ width: "95%" }}
+          >
+          PlayList
+          </Dropdown.Toggle>
+          {/* <button className="btn btn-danger" style={{ width: "190px" }}>
+            Remove
+          </button> */}
+          <Dropdown.Menu>
+            <PlaylistAll />
+          </Dropdown.Menu>
+        </Dropdown>
+      </div>
+    </div>
   );
              
     

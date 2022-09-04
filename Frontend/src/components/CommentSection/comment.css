@@ -1,17 +1,19 @@
 .commentcontainer{
     margin-top: 2px;
     margin-bottom: 1px;
-   
-    
+    /* width: calc(300px + 3vw); */
+    width: auto;
+    margin: 20px 20px 20px 20px
 }
 
 .commentsbox{
-    width: calc(410px + 3vw);
+    width: calc(280px + 3vw);
     height: 80px;
     border-radius: 2px;
-    margin-left: 3vw;
+    /* margin-left: 2vw; */
     background-color:rgb(240, 239, 239);
     border-color: rgb(229, 233, 238);
+    
 }
 
 .commentboxwrapper{
@@ -37,6 +39,7 @@
 }
 
 .deled{
-    margin-top: -40px;
-    margin-left: 360px;
+    /* margin-top: -40px;
+    margin-left: 360px; */
+    float: right;
 }

@@ -11,6 +11,7 @@ import Favorites from './pages/favorites/favorites';
 import Browse from './pages/Browse/Browse';
 import './App.css'; 
 import LoginForm from './components/loginForm';
+import RegisterForm from './components/registerForm';
 
 
 const App = ()=> {
@@ -29,6 +30,7 @@ const App = ()=> {
       <Switch>
      
         <Route path='/login' component={LoginForm}/>
+        <Route path='/register' component={RegisterForm}/>
         <Route path='/' component={Home} exact/>
         <Route path='/movie/:id' component={Movie} exact/>
         <Route path='/watch/:id' component={Watch} exact/>

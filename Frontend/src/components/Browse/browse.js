@@ -12,28 +12,20 @@ function BrowseItem(props){
       },[])
 
 
-  return(
-  <div>
-    <head>
-    <link rel="stylesheet" href="./favorites.css" ></link>
-</head>
+  return (
+    <div>
+      <head>
+        <link rel="stylesheet" href="./favorites.css"></link>
+      </head>
 
-      
-       <div className='wrapper' data-aos="fade-up">
-        
-         
-      
-        <Link to={`/movie/${props.id}`}><img  className="mimg" src={props.img} alt=''/></Link>
-                                        <p className="movieTitle">{props.title}  - {props.year}</p>
-  
-
-
-           
-           </div>
-           
-
-        </div>
-        
+      <div className="wrapper" data-aos="fade-up">
+        <Link to={`/movie/${props.id}`}>
+          <img className="mimg" src={props.img} alt="" />
+        </Link>
+        <p className="movieTitle">{props.title}</p>
+        <p className="movieYear">{props.year}</p>
+      </div>
+    </div>
   );
              
     
