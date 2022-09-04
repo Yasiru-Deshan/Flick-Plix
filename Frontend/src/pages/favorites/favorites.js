@@ -253,6 +253,13 @@ function Favorites() {
             </div>
 
             <div className="carousel">
+            {favs.length === 0 ? (
+
+              
+            <div style={{ display: "flex", margin: "auto" }}>
+              <p className="playDesc">No items to show</p>
+            </div>
+          ) : (
               <Carousel
                 breakPoints={breakPoints}
                 itemsToShow={3}
@@ -275,7 +282,7 @@ function Favorites() {
                   );
                 })}
               </Carousel>
-
+          )}
               {/* <button onClick={pdf2} className="newPlaylist">
                 <svg
                   id="dwn-icon"
@@ -320,7 +327,7 @@ function Favorites() {
                 >
                   Create New playlist
                 </button>
-
+               {favs.length === 0 ? (null):(
                 <button
                   className="newButton"
                   style={{
@@ -353,7 +360,7 @@ function Favorites() {
                     style={{ display: "none" }}
                   ></span>{" "}
                   Download Favorites
-                </button>
+                </button>) }
               </div>
             </div>
           </div>

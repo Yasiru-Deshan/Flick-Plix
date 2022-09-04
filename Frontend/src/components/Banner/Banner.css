@@ -10,11 +10,13 @@
 @media screen and (max-width: 768px) {
   .BannerContainer {
     height: 600px;
+    width: 700px;
   }
 }
 
 @media screen and (max-width: 480px) {
   .BannerContainer {
     height: 600px;
+    width: 400px;
   }
 }

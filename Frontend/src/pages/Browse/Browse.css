@@ -21,18 +21,7 @@
 }
 
 
- @media screen and (max-width: 768px){
-    .MenuContainer{
-        height: 550px;
-    }
-};
 
-@media screen and (max-width: 480px){
-    .MenuContainer{
-        height: 550px;
-        position: fixed;
-    }
-}
 
 .mHeading{
    

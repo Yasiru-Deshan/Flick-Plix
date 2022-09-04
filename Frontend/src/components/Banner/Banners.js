@@ -29,6 +29,7 @@ const Banners = () => {
       <div>
         <center>
           <SimpleImageSlider
+            
             width={1400}
             height={450}
             images={images}

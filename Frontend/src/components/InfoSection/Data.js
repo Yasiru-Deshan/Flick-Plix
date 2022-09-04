@@ -4,7 +4,7 @@ export const homeObjOne = {
     lightText:true,
     lightTextDesc: true,
     topLine: 'Premium Access',
-    headline: 'Enjoy Thoughtful Entertainment',
+    headline: 'Enjoy Thoughtful Entertain',
     description: 'We partner with public libraries and universities to bring you ad-free films and series that can be enjoyed on your TV, mobile phone, tablet and online.',
     buttonLabel: 'Get Started',
     imgStart: false,
