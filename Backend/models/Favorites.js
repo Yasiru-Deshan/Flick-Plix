@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const FavoritesSchema = mongoose.Schema({
    movieId: {
 		type: mongoose.Schema.Types.ObjectId,
-		ref: 'MovieItem'
+		ref: 'Movie'
 	},
     title:{
         type: String
