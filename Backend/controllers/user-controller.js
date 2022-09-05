@@ -96,7 +96,6 @@ const addUser = async (req, res, next) => {
 				address,
 				mobile,
 				gender,
-				package: packageId ? packageId : null,
 				role: 'user'
 			});
 

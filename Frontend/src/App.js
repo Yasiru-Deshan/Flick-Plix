@@ -10,8 +10,8 @@ import './components/Footer/FooterElements'
 import Favorites from './pages/favorites/favorites';
 import Browse from './pages/Browse/Browse';
 import './App.css'; 
-import LoginForm from './components/loginForm';
-import RegisterForm from './components/registerForm';
+import Login from './components/Login/Login.jsx';
+import Signup from './components/SignUp/signup';
 
 
 const App = ()=> {
@@ -29,8 +29,8 @@ const App = ()=> {
         <Navbar toggle={toggle}/>    
       <Switch>
      
-        <Route path='/login' component={LoginForm}/>
-        <Route path='/register' component={RegisterForm}/>
+        <Route path='/login' component={Login}/>
+        <Route path='/register' component={Signup}/>
         <Route path='/' component={Home} exact/>
         <Route path='/movie/:id' component={Movie} exact/>
         <Route path='/watch/:id' component={Watch} exact/>
