@@ -163,7 +163,7 @@ const Movie = () => {
   return (
     <div style={{ backgroundColor: "#101522" }}>
       <div className="MovieContainer">
-        .
+        
         <div className="MovieWrapper">
           <div className="MovieRow">
             <div className="Column1">

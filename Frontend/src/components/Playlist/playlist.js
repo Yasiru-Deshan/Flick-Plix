@@ -11,6 +11,7 @@ import Modal from "react-modal";
 import { Form } from "react-bootstrap";
 import "../../pages/favorites/favorites.css";
 import PlayListItem from "./playlistitem";
+import CloseButton from "react-bootstrap/CloseButton";
 import jsPDF from "jspdf";
 
 const breakPoints = [
@@ -46,20 +47,20 @@ function Playlist(props) {
     fetchData();
   }, [props.id]);
 
-  const PlayListMovies = () => {
-    return pMovies.map((lName) => {
-      return (
-        <PlayListItem
-          key={lName.id}
-          id={lName._id}
-          title={lName.title}
-          image={lName.img}
-          year={lName.year}
-          type={lName.genre}
-        />
-      );
-    });
-  };
+  // const PlayListMovies = () => {
+  //   return pMovies.map((lName) => {
+  //     return (
+  //       <PlayListItem
+  //         key={lName.id}
+  //         id={lName._id}
+  //         title={lName.title}
+  //         image={lName.img}
+  //         year={lName.year}
+  //         type={lName.genre}
+  //       />
+  //     );
+  //   });
+  // };
 
   const submitHandler = async (e) => {
     let update;
@@ -140,23 +141,29 @@ function Playlist(props) {
         onRequestClose={() => setModal(false)}
         style={{
           overlay: {
-            backgroundColor: "transparent",
-            marginTop: "100px",
-            width: "30%",
-            height: "445px",
-            marginLeft: "50%",
+            backgroundColor: "rgba(49, 49, 49, 0.8)",
+            width: "100%",
+            height: "100%",
           },
 
           content: {
-            borderRadius: "20px",
-            color: "white",
-            background: "#373B44",
+            width: "calc(200px + 15vw)",
+            height: "350px",
+            borderRadius: "5px",
+            color: "black",
+            background: "white",
+            margin: "0 auto",
+            marginTop: "100px",
           },
         }}
       >
+        {" "}
+        <CloseButton onClick={() => setModal(false)} variant="white">
+          Close
+        </CloseButton>
         <h1>Edit Playlist</h1>
         <Form onSubmit={submitHandler}>
-          <Form.Label>Name</Form.Label>
+          <Form.Label style={{ color: "blue" }}>Name</Form.Label>
           <Form.Control
             type="text"
             value={tName}
@@ -165,7 +172,7 @@ function Playlist(props) {
             }}
           />
 
-          <Form.Label>Description</Form.Label>
+          <Form.Label style={{ color: "blue" }}>Description</Form.Label>
           <Form.Control
             type="text"
             value={pDesc}
@@ -173,12 +180,22 @@ function Playlist(props) {
               setDescription(e.target.value);
             }}
           />
-          <Button variant="primary" onClick={() => setModal(false)}>
-            Close
-          </Button>
-          <Button variant="primary" type="submit">
+
+          <button
+            type="submit"
+            style={{
+              fontSize: "calc(0.2vw + 12px)",
+              borderRadius: "3px",
+              padding: "calc(15px + 1vw)",
+              color: "#fff",
+              backgroundColor: "#01bf71",
+              border: "none",
+              width: "100%",
+              marginTop: "10px",
+            }}
+          >
             Update
-          </Button>
+          </button>
         </Form>
       </Modal>
 

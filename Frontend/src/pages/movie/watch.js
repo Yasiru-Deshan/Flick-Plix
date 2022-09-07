@@ -20,23 +20,15 @@ function Watch() {
     }, [id])
 
     return (
-        <div className="playercontainer" style={{backgroundColor: "#000"}}>
-.
-        
-
-        <div className="watchplayer">
-
-       <ReactPlayer 
-          width="100%"
-          height="720px"
-          controls
-          url={video}/>
-
-            
+      <div
+        className="playercontainer"
+        style={{ backgroundColor: "#000", margin: "0 auto" }}
+      >
+        <div style={{ marginTop: "50px" }}>
+          <ReactPlayer width="100%" height="720px" controls url={video} />
         </div>
-        .
-        </div>
-    )
+      </div>
+    );
 }
 
 export default Watch

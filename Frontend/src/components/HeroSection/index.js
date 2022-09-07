@@ -39,7 +39,7 @@ const HeroSection = () => {
           </HeroP>
           <HeroBtnWrapper data-aos="fade-up">
             <Buttong
-              to="/register"
+              to="/login"
               onMouseEnter={onHover}
               onMouseLeave={onHover}
             >

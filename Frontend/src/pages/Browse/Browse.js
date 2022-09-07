@@ -14,10 +14,10 @@ const breakPoints = [
 
 function Browse() {
   let [movieList, setMovieList] = useState([]);
-  let [thrillerMovieList, setThrillerMovieList] = useState([]);
+  // let [thrillerMovieList, setThrillerMovieList] = useState([]);
   let [actionMovieList, setActionMovieList] = useState([]);
   let [horrorMovieList, setHorrorMovieList] = useState([]);
-  let [comedyMovieList, setComedyMovieList] = useState([]);
+  // let [comedyMovieList, setComedyMovieList] = useState([]);
   let [romanceMovieList, setRomanceMovieList] = useState([]);
   let [search, setSearch] = useState("");
 
@@ -31,32 +31,32 @@ function Browse() {
     getMovies();
   }, []);
 
-  useEffect(() => {
-    const getMovies = () => {
-      axios
-        .get("http://localhost:8070/api/movies/movie/Thriller")
-        .then((res) => {
-          setThrillerMovieList(res.data);
-        });
-    };
+  // useEffect(() => {
+  //   const getMovies = () => {
+  //     axios
+  //       .get("http://localhost:8070/api/movies/movie/Thriller")
+  //       .then((res) => {
+  //         setThrillerMovieList(res.data);
+  //       });
+  //   };
 
-    getMovies();
-  }, []);
+  //   getMovies();
+  // }, []);
 
-  const AllThrillerMovies = () => {
-    return thrillerMovieList.map((pName) => {
-      return (
-        <BrowseItem
-          key={pName.id}
-          id={pName._id}
-          img={pName.img}
-          title={pName.title}
-          desc={pName.desc}
-          year={pName.year}
-        />
-      );
-    });
-  };
+  // const AllThrillerMovies = () => {
+  //   return thrillerMovieList.map((pName) => {
+  //     return (
+  //       <BrowseItem
+  //         key={pName.id}
+  //         id={pName._id}
+  //         img={pName.img}
+  //         title={pName.title}
+  //         desc={pName.desc}
+  //         year={pName.year}
+  //       />
+  //     );
+  //   });
+  // };
 
   useEffect(() => {
     const getActionMovies = () => {
@@ -68,20 +68,20 @@ function Browse() {
     getActionMovies();
   }, []);
 
-  const AllActionMovies = () => {
-    return actionMovieList.map((aName) => {
-      return (
-        <BrowseItem
-          key={aName.id}
-          id={aName._id}
-          img={aName.img}
-          title={aName.title}
-          desc={aName.desc}
-          year={aName.year}
-        />
-      );
-    });
-  };
+  // const AllActionMovies = () => {
+  //   return actionMovieList.map((aName) => {
+  //     return (
+  //       <BrowseItem
+  //         key={aName.id}
+  //         id={aName._id}
+  //         img={aName.img}
+  //         title={aName.title}
+  //         desc={aName.desc}
+  //         year={aName.year}
+  //       />
+  //     );
+  //   });
+  // };
 
   useEffect(() => {
     const getHorrorMovies = () => {
@@ -95,30 +95,30 @@ function Browse() {
 
   
 
-  useEffect(() => {
-    const getComedyMovies = () => {
-      axios.get("http://localhost:8070/api/movies/movie/Comedy").then((res) => {
-        setComedyMovieList(res.data);
-      });
-    };
+  // useEffect(() => {
+  //   const getComedyMovies = () => {
+  //     axios.get("http://localhost:8070/api/movies/movie/Comedy").then((res) => {
+  //       setComedyMovieList(res.data);
+  //     });
+  //   };
 
-    getComedyMovies();
-  }, []);
+  //   getComedyMovies();
+  // }, []);
 
-  const AllComedyMovies = () => {
-    return comedyMovieList.map((aName) => {
-      return (
-        <BrowseItem
-          key={aName.id}
-          id={aName._id}
-          img={aName.img}
-          title={aName.title}
-          desc={aName.desc}
-          year={aName.year}
-        />
-      );
-    });
-  };
+  // const AllComedyMovies = () => {
+  //   return comedyMovieList.map((aName) => {
+  //     return (
+  //       <BrowseItem
+  //         key={aName.id}
+  //         id={aName._id}
+  //         img={aName.img}
+  //         title={aName.title}
+  //         desc={aName.desc}
+  //         year={aName.year}
+  //       />
+  //     );
+  //   });
+  // };
 
   useEffect(() => {
     const getMovies = () => {
@@ -139,9 +139,9 @@ function Browse() {
     movieList.filter((i) => {
       return i.title.toLowerCase().match(search.toLowerCase());
     });
-    thrillerMovieList = thrillerMovieList.filter((i) => {
-      return i.title.toLowerCase().match(search.toLowerCase());
-    });
+    // thrillerMovieList = thrillerMovieList.filter((i) => {
+    //   return i.title.toLowerCase().match(search.toLowerCase());
+    // });
 
     actionMovieList = actionMovieList.filter((i) => {
       return i.title.toLowerCase().match(search.toLowerCase());
@@ -149,9 +149,9 @@ function Browse() {
     horrorMovieList = horrorMovieList.filter((i) => {
       return i.title.toLowerCase().match(search.toLowerCase());
     });
-    comedyMovieList = comedyMovieList.filter((i) => {
-      return i.title.toLowerCase().match(search.toLowerCase());
-    });
+    // comedyMovieList = comedyMovieList.filter((i) => {
+    //   return i.title.toLowerCase().match(search.toLowerCase());
+    // });
     romanceMovieList = romanceMovieList.filter((i) => {
       return i.title.toLowerCase().match(search.toLowerCase());
     });
@@ -162,10 +162,11 @@ function Browse() {
       <div
         style={{
           backgroundColor: "#101522",
+          paddingTop: "50px"
           // background: 'linear-gradient(to right, #2C5364, #203A43, #0F2027)' /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         }}
       >
-        .
+        
         <center>
           <MDBCol md="6" className="searchbar">
             <input
