@@ -33,7 +33,10 @@ const Signup = ()=>{
        }
 
        try{
-           newStaff = await axios.post("http://localhost:8070/api/auth/",newMember)
+           newStaff = await axios.post(
+             `${process.env.REACT_APP_BASE_URL}/api/auth/`,
+             newMember
+           );
            if(newStaff){
                <Redirect to="/" />;
 				return <Redirect to="/" />;

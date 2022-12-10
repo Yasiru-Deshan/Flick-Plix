@@ -40,7 +40,9 @@ function Playlist(props) {
   useEffect(() => {
     async function fetchData() {
       const response = (
-        await axios.get(`http://localhost:8070/api/auth/${auth.userId}/playlist`)
+        await axios.get(
+          `${process.env.REACT_APP_BASE_URL}/api/auth/${auth.userId}/playlist`
+        )
       ).data;
       settName(response.name);
       setDescription(response.desc);
@@ -76,7 +78,7 @@ function Playlist(props) {
 
     try {
       update = await axios.put(
-        `http://localhost:8070/api/playlists/edit/${pid}`,
+        `${process.env.REACT_APP_BASE_URL}/api/playlists/edit/${pid}`,
         updatedPlaylist
       );
 
@@ -93,7 +95,7 @@ function Playlist(props) {
 
     if (window.confirm(`Are you sure about deleting playlist ${props.name}?`)) {
       deletion = await axios.delete(
-        `http://localhost:8070/api/playlists/delete/${id}`
+        `${process.env.REACT_APP_BASE_URL}/api/playlists/delete/${id}`
       );
     }
 

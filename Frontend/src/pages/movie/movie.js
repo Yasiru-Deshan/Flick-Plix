@@ -35,7 +35,9 @@ const Movie = () => {
   useEffect(() => {
     async function fetchData() {
       const response = (
-        await axios.get(`http://localhost:8070/api/movies/find/${id}`)
+        await axios.get(
+          `${process.env.REACT_APP_BASE_URL}/api/movies/find/${id}`
+        )
       ).data;
       setTitle(response.title);
       setYear(response.year);
@@ -51,7 +53,7 @@ const Movie = () => {
 
   const likehandler = () => {
     try {
-      axios.put(`http://localhost:8070/api/movies/${id}/like`);
+      axios.put(`${process.env.REACT_APP_BASE_URL}/movies/${id}/like`);
     } catch (err) {}
 
     setLike(isLiked ? like - 1 : like + 1);
@@ -80,7 +82,7 @@ const Movie = () => {
             };
 
       newF = await axios.put(
-        `http://localhost:8070/api/auth/${auth.userId}/addtofav`,
+        `${process.env.REACT_APP_BASE_URL}/api/auth/${auth.userId}/addtofav`,
         newFavorite,
         config
       );
@@ -105,7 +107,10 @@ const Movie = () => {
     };
 
     try {
-      newc = await axios.post("http://localhost:8070/api/comments", newComment);
+      newc = await axios.post(
+        `${process.env.REACT_APP_BASE_URL}/api/comments`,
+        newComment
+      );
       if (newc) {
         window.alert("Comment has been posted");
       }
@@ -119,7 +124,7 @@ const Movie = () => {
   useEffect(() => {
     const getComments = () => {
       axios
-        .get(`http://localhost:8070/api/comments/movie/${id}`)
+        .get(`${process.env.REACT_APP_BASE_URL}/api/comments/movie/${id}`)
         .then((res) => {
           setAllComments(res.data);
         });
@@ -143,9 +148,11 @@ const Movie = () => {
 
   useEffect(() => {
     const getPlayLists = () => {
-      axios.get("http://localhost:8070/api/playlists").then((res) => {
-        setPlaylist(res.data);
-      });
+      axios
+        .get(`${process.env.REACT_APP_BASE_URL}/api/playlists`)
+        .then((res) => {
+          setPlaylist(res.data);
+        });
     };
 
     getPlayLists();

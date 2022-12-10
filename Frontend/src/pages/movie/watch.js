@@ -11,7 +11,11 @@ function Watch() {
 
       useEffect(() => {
         async function fetchData() {
-            const response = (await axios.get(`http://localhost:8070/api/movies/find/${id}`)).data;
+            const response = (
+              await axios.get(
+                `${process.env.REACT_APP_BASE_URL}/movies/find/${id}`
+              )
+            ).data;
          
             setVideo(response.video);
             

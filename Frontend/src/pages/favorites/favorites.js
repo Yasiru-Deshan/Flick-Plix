@@ -40,16 +40,16 @@ function Favorites() {
 
     try {    
       const config = {
-      headers: {
-      "x-auth-token": `${auth.token}`,
-      "Content-Type": "application/json",
-    },
-  },
-      newPlay = await axios.post(
-        `http://localhost:8070/api/auth/${auth.userId}/newplaylist`,
-        newPlaylist,
-        config
-      );
+          headers: {
+            "x-auth-token": `${auth.token}`,
+            "Content-Type": "application/json",
+          },
+        },
+        newPlay = await axios.post(
+          `${process.env.REACT_APP_BASE_URL}/api/auth/${auth.userId}/newplaylist`,
+          newPlaylist,
+          config
+        );
 
       if (newPlay) {
         window.alert("New Play list has been created");
@@ -67,9 +67,14 @@ function Favorites() {
     },
   };
     const getFavs = () => {
-      axios.get(`http://localhost:8070/api/auth/${auth.userId}/favorites`,config).then((res) => {
-        setFavs(res.data);
-      });
+      axios
+        .get(
+          `${process.env.REACT_APP_BASE_URL}/api/auth/${auth.userId}/favorites`,
+          config
+        )
+        .then((res) => {
+          setFavs(res.data);
+        });
     };
 
     getFavs();
@@ -83,7 +88,11 @@ function Favorites() {
     },
   };
     const getPlayLists = () => {
-      axios.get(`http://localhost:8070/api/auth/${auth.userId}/playlists`, config)
+      axios
+        .get(
+          `${process.env.REACT_APP_BASE_URL}/api/auth/${auth.userId}/playlists`,
+          config
+        )
         .then((res) => {
           setPlaylist(res.data);
         });

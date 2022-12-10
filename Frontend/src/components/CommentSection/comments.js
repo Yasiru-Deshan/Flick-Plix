@@ -16,7 +16,7 @@ function Comments(props) {
     async function fetchData() {
       const response = (
         await axios.get(
-          `http://localhost:8070/api/comments/${props.id}/comments`
+          `${process.env.REACT_APP_BASE_URL}/api/comments/${props.id}/comments`
         )
       ).data;
       setpdesc(response.desc);
@@ -36,7 +36,7 @@ function Comments(props) {
 
     try {
       update = await axios.put(
-        `http://localhost:8070/api/comments/edit/${pid}`,
+        `${process.env.REACT_APP_BASE_URL}/api/comments/edit/${pid}`,
         updatedComment
       );
 
@@ -53,10 +53,10 @@ function Comments(props) {
 
     if (window.confirm("Are you sure about deleting this comment?")) {
       deletion = await axios.delete(
-        `http://localhost:8070/api/comments/delete/${id}`
+        `${process.env.REACT_APP_BASE_URL}/api/comments/delete/${id}`
       );
     }
-    //const deletion = await axios.delete(`http://localhost:8070/customers/delete/${id}`);
+    //const deletion = await axios.delete(`${process.env.REACT_APP_BASE_URL}/customers/delete/${id}`);
     if (deletion) {
       window.alert("Comment has been deleted");
     } else {

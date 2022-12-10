@@ -23,9 +23,11 @@ function FavoritesItem(props){
      useEffect(()=>{
 
       const getPlayLists = () =>{
-        axios.get('http://localhost:8070/api/playlists').then((res)=>{
-          setPlaylist(res.data);
-        })
+        axios
+          .get(`${process.env.REACT_APP_BASE_URL}/api/playlists`)
+          .then((res) => {
+            setPlaylist(res.data);
+          });
       }
 
       getPlayLists();

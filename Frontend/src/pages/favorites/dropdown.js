@@ -19,7 +19,10 @@ function DropdownMenu(props) {
        }
 
        try{
-           newM = await axios.put(`http://localhost:8070/api/playlists/${props.id}/addtoPlaylist`,newMovie)
+           newM = await axios.put(
+             `${process.env.REACT_APP_BASE_URL}/api/playlists/${props.id}/addtoPlaylist`,
+             newMovie
+           );
            if(newM){
                window.alert("Movie has been added to playlist")
            }

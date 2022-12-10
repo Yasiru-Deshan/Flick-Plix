@@ -23,7 +23,7 @@ function Browse() {
 
   useEffect(() => {
     const getMovies = () => {
-      axios.get("http://localhost:8070/api/movies/").then((res) => {
+      axios.get(`${process.env.REACT_APP_BASE_URL}/api/movies/`).then((res) => {
         setMovieList(res.data);
       });
     };
@@ -34,7 +34,7 @@ function Browse() {
   // useEffect(() => {
   //   const getMovies = () => {
   //     axios
-  //       .get("http://localhost:8070/api/movies/movie/Thriller")
+  //       .get("${process.env.REACT_APP_BASE_URL}/api/movies/movie/Thriller")
   //       .then((res) => {
   //         setThrillerMovieList(res.data);
   //       });
@@ -60,7 +60,7 @@ function Browse() {
 
   useEffect(() => {
     const getActionMovies = () => {
-      axios.get("http://localhost:8070/api/movies/movie/Action").then((res) => {
+      axios.get(`${process.env.REACT_APP_BASE_URL}/api/movies/movie/Action`).then((res) => {
         setActionMovieList(res.data);
       });
     };
@@ -85,7 +85,7 @@ function Browse() {
 
   useEffect(() => {
     const getHorrorMovies = () => {
-      axios.get("http://localhost:8070/api/movies/movie/Horror").then((res) => {
+      axios.get(`${process.env.REACT_APP_BASE_URL}/api/movies/movie/Horror`).then((res) => {
         setHorrorMovieList(res.data);
       });
     };
@@ -97,7 +97,7 @@ function Browse() {
 
   // useEffect(() => {
   //   const getComedyMovies = () => {
-  //     axios.get("http://localhost:8070/api/movies/movie/Comedy").then((res) => {
+  //     axios.get("${process.env.REACT_APP_BASE_URL}/api/movies/movie/Comedy").then((res) => {
   //       setComedyMovieList(res.data);
   //     });
   //   };
@@ -123,7 +123,7 @@ function Browse() {
   useEffect(() => {
     const getMovies = () => {
       axios
-        .get("http://localhost:8070/api/movies/movie/Romance")
+        .get(`${process.env.REACT_APP_BASE_URL}/api/movies/movie/Romance`)
         .then((res) => {
           setRomanceMovieList(res.data);
         });
