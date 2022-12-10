@@ -12,7 +12,7 @@ module.exports = function (req, res, next) {
 	//verify token
 
 	try {
-		const decode = jwt.verify(token, 'alphafitness');
+		const decode = jwt.verify(token, 'flickplix');
 
 		req.user = decode.user;
 		if (req.user.role != 'admin') {

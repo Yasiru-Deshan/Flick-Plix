@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js"
+    
   },
-  "author": "yasiru,dilanka,chamathka & miyelandi",
+  "author": "yasiru",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",

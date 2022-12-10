@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c8b0d91a.chunk.css",
+    "main.js": "/static/js/main.e999fda7.chunk.js",
+    "main.js.map": "/static/js/main.e999fda7.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.4b911802.js",
+    "runtime-main.js.map": "/static/js/runtime-main.4b911802.js.map",
+    "static/js/2.398c59e9.chunk.js": "/static/js/2.398c59e9.chunk.js",
+    "static/js/2.398c59e9.chunk.js.map": "/static/js/2.398c59e9.chunk.js.map",
+    "static/css/3.1e86e0f4.chunk.css": "/static/css/3.1e86e0f4.chunk.css",
+    "static/js/3.ecf2971f.chunk.js": "/static/js/3.ecf2971f.chunk.js",
+    "static/js/3.ecf2971f.chunk.js.map": "/static/js/3.ecf2971f.chunk.js.map",
+    "static/js/4.e871b9fe.chunk.js": "/static/js/4.e871b9fe.chunk.js",
+    "static/js/4.e871b9fe.chunk.js.map": "/static/js/4.e871b9fe.chunk.js.map",
+    "static/js/5.8b645c8d.chunk.js": "/static/js/5.8b645c8d.chunk.js",
+    "static/js/5.8b645c8d.chunk.js.map": "/static/js/5.8b645c8d.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/3.1e86e0f4.chunk.css.map": "/static/css/3.1e86e0f4.chunk.css.map",
+    "static/css/main.c8b0d91a.chunk.css.map": "/static/css/main.c8b0d91a.chunk.css.map",
+    "static/js/2.398c59e9.chunk.js.LICENSE.txt": "/static/js/2.398c59e9.chunk.js.LICENSE.txt",
+    "static/js/3.ecf2971f.chunk.js.LICENSE.txt": "/static/js/3.ecf2971f.chunk.js.LICENSE.txt",
+    "static/js/4.e871b9fe.chunk.js.LICENSE.txt": "/static/js/4.e871b9fe.chunk.js.LICENSE.txt",
+    "static/js/5.8b645c8d.chunk.js.LICENSE.txt": "/static/js/5.8b645c8d.chunk.js.LICENSE.txt",
+    "static/media/mdb.css": "/static/media/arrow_right.f7c6ac6d.svg",
+    "static/media/all.min.css": "/static/media/fa-solid-900.eeccf4f6.woff",
+    "static/media/svg-1.svg": "/static/media/svg-1.198c8835.svg",
+    "static/media/svg-2.svg": "/static/media/svg-2.6d15ef81.svg",
+    "static/media/svg-3.svg": "/static/media/svg-3.c57ef709.svg",
+    "static/media/svg-7.c4a01081.svg": "/static/media/svg-7.c4a01081.svg",
+    "static/media/video3.e0c569f0.mp4": "/static/media/video3.e0c569f0.mp4"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4b911802.js",
+    "static/css/3.1e86e0f4.chunk.css",
+    "static/js/3.ecf2971f.chunk.js",
+    "static/css/main.c8b0d91a.chunk.css",
+    "static/js/main.e999fda7.chunk.js"
+  ]
+}

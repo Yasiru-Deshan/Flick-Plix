@@ -40,22 +40,63 @@ const UserSchema = mongoose.Schema({
   },
   favorites: [
     {
-      movie: {
+      movieId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'MovieItem',
+        ref: "Movie",
       },
+      // title: {
+      //   type: String,
+      // },
+      // img: {
+      //   type: String,
+      // },
+      // year: {
+      //   type: String,
+      // },
+      // genre: {
+      //   type: String,
+      // },
       day: {
         type: Number,
       },
     },
   ],
-  playlists: [
+  playLists: [
     {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "PlayList",
+      playListId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "PlayList",
+      },
+      name: {
+        type: String,
+        max: 10,
+      },
+      desc: {
+        type: String,
+        max: 500,
+      },
+      movies: [
+        {
+          movieId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Movie",
+          },
+          title: {
+            type: String,
+          },
+          img: {
+            type: String,
+          },
+          year: {
+            type: String,
+          },
+          genre: {
+            type: String,
+          },
+        },
+      ],
     },
   ],
-  
 });
 
 module.exports = mongoose.model("User", UserSchema);

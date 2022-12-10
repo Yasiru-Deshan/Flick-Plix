@@ -1,24 +1,34 @@
 const mongoose = require('mongoose');
 
 const MovieSchema = new mongoose.Schema(
-	{
-		title: { type: String, required: true, unique: true },
-		desc: { type: String },
-		img: { type: String },
-		imgTitle: { type: String },
-		imgSm: { type: String },
-		trailer: { type: String },
-		video: { type: String },
-		year: { type: String },
-		limit: { type: Number },
-		genre: { type: String },
-		isSeries: { type: Boolean, default: false },
-		likes:{
-            type: Array,
-            default: [],
-        },
-	},
-	{ timestamps: true }
+  {
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
+    title: { type: String, required: true, unique: true },
+    desc: { type: String },
+    img: { type: String },
+    imgTitle: { type: String },
+    imgSm: { type: String },
+    trailer: { type: String },
+    video: { type: String },
+    year: { type: String },
+    limit: { type: Number },
+    genre: { type: String },
+    isSeries: { type: Boolean, default: false },
+    likes: {
+      type: Array,
+      default: [],
+    },
+    comments: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Comment",
+      },
+    ],
+  },
+  { timestamps: true }
 );
 
 module.exports = mongoose.model('Movie', MovieSchema);

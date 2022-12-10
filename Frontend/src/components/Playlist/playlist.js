@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Carousel from "react-elastic-carousel";
 import "./playlist.css";
 import Button from "@material-ui/core/Button";
@@ -13,6 +13,7 @@ import "../../pages/favorites/favorites.css";
 import PlayListItem from "./playlistitem";
 import CloseButton from "react-bootstrap/CloseButton";
 import jsPDF from "jspdf";
+import { AuthContext } from "../../context/AuthContext";
 
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
@@ -28,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Playlist(props) {
+  const auth = useContext(AuthContext);
   const classes = useStyles();
   const pid = props.id;
   const [mDal, setModal] = useState(false);
@@ -38,14 +40,14 @@ function Playlist(props) {
   useEffect(() => {
     async function fetchData() {
       const response = (
-        await axios.get(`http://localhost:8070/api/playlists/find/${props.id}`)
+        await axios.get(`http://localhost:8070/api/auth/${auth.userId}/playlist`)
       ).data;
       settName(response.name);
       setDescription(response.desc);
       setPMovies(response.movies);
     }
     fetchData();
-  }, [props.id]);
+  }, [pid]);
 
   // const PlayListMovies = () => {
   //   return pMovies.map((lName) => {

@@ -1,7 +1,10 @@
 const User = require('../models/User');
+const Movie = require('../models/Movie');
+const PlayList = require('../models/Playlist');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const Comment = require('../models/Comment');
+const Playlist = require('../models/Playlist');
 
 const getUsers = async (req, res, next) => {
 	try {
@@ -256,10 +259,104 @@ const deleteCustomer = async (req, res, next) => {
 		return res.status(500).json({ msg: err });
 	}
 };
+
+//add to favorites
+const addToFavorites = async (req, res, next) => {
+  
+	try {
+    let newFav = {
+      movieId: req.body.movieId,
+    //   title: req.body.title,
+    //   img: req.body.img,
+    //   year: req.body.year,
+    //   genre: req.body.genre,
+    //   day: Date.now,
+    };
+
+    const user = await User.findById(req.params.id);
+
+    // const savedFav = await user.updateOne({
+    //   $push: { favorites: [newFav] },
+    // });
+	user.favorites.unshift(newFav);
+	await user.save();
+    res.status(200).json("Movie added to favorites");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
+const getFavorites = async(req,res,next)=>{
+
+	//const user = await User.findById(req.body.userId);
+     try {
+       const user = await User.findById(req.params.id)
+	   .populate('favorites.movieId');
+       res.json(user.favorites);
+     } catch (err) {
+       res.status(500).json(err);
+     }
+ };
+
+//create a playlist
+const createPlayList = async (req, res, next) => {
+ try {
+   const newPlayList = new PlayList({
+	user: req.params.id,
+	name: req.body.name,
+	desc: req.body.desc
+   });
+
+   const user = await User.findById(req.params.id);
+
+   await user.updateOne({
+     $push: { playLists: [newPlayList] },
+   });
+   await newPlayList.save();
+   res.status(200).json("PlayList Created");
+ } catch (err) {
+   res.status(500).json(err);
+ }
+};
+
+//get all playlists
+const getPlayLists = async (req, res, next) => {
+ 
+  try {
+    const user = await User.findById(req.params.id);
+    res.json(user.playLists);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
+//get a playlist
+const getPlayList = async (req, res, next) => {
+  try {
+
+	const user = await User.findById(req.params.id);
+
+    const playlist = await Playlist.findById(req.body.id);
+
+	if (req.params.id == playlist.user) {
+    res.status(200).json(playlist);
+  } else {
+    res.status(500).json("You can't access this playlist");
+  }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
 exports.getUsers = getUsers;
 exports.login = login;
 exports.addUser = addUser;
 
+exports.addToFavorites = addToFavorites;
+exports.getFavorites = getFavorites;
+exports.getPlayLists = getPlayLists;
+exports.getPlayList = getPlayList;
+exports.createPlayList = createPlayList;
 exports.updateUser = updateUser;
 exports.deleteCustomer = deleteCustomer;
 exports.uploadProfilePic = uploadProfilePic;

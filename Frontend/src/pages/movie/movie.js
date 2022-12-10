@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
 import "./movie.css";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import AddBoxIcon from "@material-ui/icons/AddBox";
@@ -11,8 +11,10 @@ import axios from "axios";
 import { useParams } from "react-router";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownMenu from "../../pages/favorites/dropdown";
+import { AuthContext } from "../../context/AuthContext";
 
 const Movie = () => {
+  const auth = useContext(AuthContext);
   const desc = useRef();
   const id = useParams().id;
   const [title, setTitle] = useState("");
@@ -70,9 +72,17 @@ const Movie = () => {
     };
 
     try {
-      newF = await axios.post(
-        "http://localhost:8070/api/favorites/addto",
-        newFavorite
+            const config = {
+              headers: {
+                "x-auth-token": `${auth.token}`,
+                "Content-Type": "application/json",
+              },
+            };
+
+      newF = await axios.put(
+        `http://localhost:8070/api/auth/${auth.userId}/addtofav`,
+        newFavorite,
+        config
       );
       if (newF) {
         window.alert("Movie has been added to favorites");

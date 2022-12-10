@@ -58,8 +58,7 @@ const Login = () => {
   return (
     <div
       style={{
-        background:
-          "linear-gradient(to right, #2C5364, #203A43, #0F2027)" /* fallback for old browsers */,
+        backgroundColor: "#101522",/* fallback for old browsers */
       }}
     >
       <div className="row justify-content-center">
