@@ -9,12 +9,13 @@ import Notification from "./components/shared/Notification/Notification";
 import Footer from "./components/Footer";
 import "./components/Footer/FooterElements";
 import "./App.css";
+require("dotenv").config();
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
-   const toggle = () => {
-     setIsOpen(!isOpen);
-   };
+  const toggle = () => {
+    setIsOpen(!isOpen);
+  };
   const [token, setToken] = useState();
   const [name, setName] = useState();
   const [role, setRole] = useState();
@@ -139,8 +140,6 @@ const App = () => {
       </NotificationContext.Provider>
     </AuthContext.Provider>
   );
-
-
 };
 
 export default App;
