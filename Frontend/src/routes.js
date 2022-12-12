@@ -41,11 +41,7 @@ const getRoutes = (role, token) => {
         <Route path="/" component={Home} exact />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Signup} />
-        <Route path="/movie/:id" component={Movie} exact />
-        <Route path="/watch/:id" component={Watch} exact />
-        <Route exact path="/favorites" component={Favorites} />
-        <Route path="/browse" component={Browse} exact />
-        <Redirect to="/"></Redirect>
+        <Redirect to="/login"></Redirect>
       </Switch>
     );
   }

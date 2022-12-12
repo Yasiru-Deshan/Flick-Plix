@@ -1,11 +1,13 @@
-import React,{useRef} from "react";
+import React,{useRef, useContext} from "react";
 import Card from "react-bootstrap/Card" ;
 import {Link} from "react-router-dom";
+import { NotificationContext } from "../../context/NotificationContext";
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
 const Signup = ()=>{
 
+     const notification = useContext(NotificationContext);
      const fname = useRef();
      const lname = useRef();
      const password = useRef();
@@ -38,8 +40,12 @@ const Signup = ()=>{
              newMember
            );
            if(newStaff){
-               <Redirect to="/" />;
-				return <Redirect to="/" />;
+            notification.showNotification(
+              "Signed Up Successfully",
+              
+            );
+               <Redirect to="/login" />;
+				return <Redirect to="/login" />;
            }
        }catch(err){
            console.log(err)
