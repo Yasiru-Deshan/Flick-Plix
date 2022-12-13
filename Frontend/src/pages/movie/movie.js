@@ -15,7 +15,7 @@ import { AuthContext } from "../../context/AuthContext";
 function Movie (){
   const auth = useContext(AuthContext);
   const desc = useRef();
-  const id = "6147b3a961b60e37a8a50f27";
+  const ids = useParams().id;
   const [title, setTitle] = useState("");
   const [year, setYear] = useState("");
   const [genre, setGenre] = useState("");
@@ -35,7 +35,7 @@ function Movie (){
     async function fetchData() {
       const response = (
         await axios.get(
-          `${process.env.REACT_APP_BASE_URL}/api/movies/find/${id}`
+          `${process.env.REACT_APP_BASE_URL}/api/movies/find/${ids}`
         )
       ).data;
       setTitle(response.title);
@@ -48,11 +48,11 @@ function Movie (){
       setLike(response.likes.length);
     }
     fetchData();
-  }, [id]);
+  }, [ids]);
 
   const likehandler = () => {
     try {
-      axios.put(`${process.env.REACT_APP_BASE_URL}/movies/${id}/like`);
+      axios.put(`${process.env.REACT_APP_BASE_URL}/movies/${ids}/like`);
     } catch (err) {}
 
     setLike(isLiked ? like - 1 : like + 1);
@@ -64,7 +64,7 @@ function Movie (){
     let newF;
 
     const newFavorite = {
-      movieId: id,
+      movieId: ids,
       title: title,
       img: image,
       year: year,
@@ -100,7 +100,7 @@ function Movie (){
     const newComment = {
       userId: "611b74dd16f8353848675308",
       uname: "Liam Livingstone",
-      movieId: id,
+      movieId: ids,
       //movieId:'6145eb2e19467e39980d27e7',
       desc: desc.current.value,
     };
@@ -123,13 +123,13 @@ function Movie (){
   useEffect(() => {
     const getComments = () => {
       axios
-        .get(`${process.env.REACT_APP_BASE_URL}/api/comments/movie/${id}`)
+        .get(`${process.env.REACT_APP_BASE_URL}/api/comments/movie/${ids}`)
         .then((res) => {
           setAllComments(res.data);
         });
     };
     getComments();
-  }, [id]);
+  }, [ids]);
 
   const CommentList = () => {
     return allComments.map((comment) => {
@@ -168,7 +168,7 @@ function Movie (){
           title={title}
           year={year}
           img={image}
-          movieId={id}
+          movieId={ids}
           genre={genre}
           video={video}
         />
@@ -211,7 +211,7 @@ function Movie (){
                   </Dropdown.Menu>
                 </Dropdown>
 
-                <Link to={`/watch/${id}`}>
+                <Link to={`/watch/${ids}`}>
                   <button className="tbutton">Watch Now</button>
                 </Link>
                 <div>
