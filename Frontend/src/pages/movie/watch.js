@@ -2,11 +2,11 @@ import React, { useEffect,  useState} from 'react';
 import ReactPlayer from 'react-player';
 import "./movie.css";
 import axios from 'axios';
-import { useParams} from "react-router";
+import { useParams} from "react-router-dom";
 
 function Watch() {
 
-    const id = useParams()._id;
+    const id = useParams().id;
     const [video, setVideo] = useState("");
 
       useEffect(() => {
