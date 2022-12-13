@@ -13,7 +13,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import DropdownMenu from "../../pages/favorites/dropdown";
 import { AuthContext } from "../../context/AuthContext";
 
-const Movie = () => {
+function Movie (){
   const auth = useContext(AuthContext);
   const desc = useRef();
   const id = useParams().id;
