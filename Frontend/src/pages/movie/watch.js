@@ -6,14 +6,14 @@ import { useParams} from "react-router";
 
 function Watch() {
 
-    const id = useParams().id;
+    const id = useParams()._id;
     const [video, setVideo] = useState("");
 
       useEffect(() => {
         async function fetchData() {
             const response = (
               await axios.get(
-                `${process.env.REACT_APP_BASE_URL}/movies/find/${id}`
+                `${process.env.REACT_APP_BASE_URL}/api/movies/find/${id}`
               )
             ).data;
          
