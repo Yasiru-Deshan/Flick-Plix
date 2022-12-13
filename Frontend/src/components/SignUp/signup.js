@@ -4,9 +4,10 @@ import {Link} from "react-router-dom";
 import { NotificationContext } from "../../context/NotificationContext";
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
+import { AuthContext } from "../../context/AuthContext";
 
 const Signup = ()=>{
-
+     const auth = useContext(AuthContext);
      const notification = useContext(NotificationContext);
      const fname = useRef();
      const lname = useRef();
@@ -19,7 +20,7 @@ const Signup = ()=>{
 
       const submitHandler = async (e)=>{
        e.preventDefault()
-       let newStaff;
+       //let newStaff;
 
        const newMember = {
            firstName: fname.current.value,
@@ -35,20 +36,36 @@ const Signup = ()=>{
        }
 
        try{
-           newStaff = await axios.post(
+           const newStaff = await axios.post(
              `${process.env.REACT_APP_BASE_URL}/api/auth/`,
-             newMember
+             newMember,
+             {
+               ContentType: "application/json",
+             }
            );
-           if(newStaff){
-            notification.showNotification(
-              "Signed Up Successfully",
-              
-            );
-               <Redirect to="/login" />;
-				return <Redirect to="/login" />;
-           }
+                 if (newStaff.data.token != null) {
+        auth.authenticate(
+          newStaff.data.token,
+          newStaff.data.firstName + " " + newStaff.data.lastName,
+          newStaff.data.id,
+          newStaff.data.role,
+          newStaff.data.user
+        );
+        <Redirect to="/login" />;
+        return <Redirect to="/login" />;
+                 }
+          //  if (newStaff) {
+          //    notification.showNotification("Signed Up Successfully");
+          //    <Link to='/login' />;
+          //    //return <Redirect to={'/login'} />;
+          //  } else {
+          //    notification.showNotification(
+          //      "Something Went Wrong",
+          //      true
+          //    );
+          //  }
        }catch(err){
-           console.log(err)
+           notification.showNotification("Server error please reload", true);
        }
    }
 

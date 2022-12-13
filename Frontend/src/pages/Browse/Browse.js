@@ -13,7 +13,7 @@ const breakPoints = [
 ];
 
 function Browse() {
-  let [movieList, setMovieList] = useState([]);
+  let [movieList = movieList, setMovieList] = useState([]);
   // let [thrillerMovieList, setThrillerMovieList] = useState([]);
   let [actionMovieList, setActionMovieList] = useState([]);
   let [horrorMovieList, setHorrorMovieList] = useState([]);
@@ -136,9 +136,11 @@ function Browse() {
 
   //search filter
   if (search.length > 0) {
-    movieList.filter((i) => {
-      return i.title.toLowerCase().match(search.toLowerCase());
-    });
+    // movieList = movieList.filter((i) => {
+    //   return i.title.toLowerCase().match(search.toLowerCase());
+    // });
+
+    
     // thrillerMovieList = thrillerMovieList.filter((i) => {
     //   return i.title.toLowerCase().match(search.toLowerCase());
     // });
