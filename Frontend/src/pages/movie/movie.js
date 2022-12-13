@@ -15,7 +15,7 @@ import { AuthContext } from "../../context/AuthContext";
 function Movie (){
   const auth = useContext(AuthContext);
   const desc = useRef();
-  const id = useParams().id;
+  const id = "6147b3a961b60e37a8a50f27";
   const [title, setTitle] = useState("");
   const [year, setYear] = useState("");
   const [genre, setGenre] = useState("");
